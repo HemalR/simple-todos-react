@@ -5,10 +5,14 @@
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "tsr": "tsr watch"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
+    "@tanstack/react-router": "^1.19.10",
+    "@tanstack/router-cli": "^1.19.6",
+    "@tanstack/router-devtools": "^1.19.11",
     "@zodern/babel-plugin-meteor-relay": "^1.1.4",
     "meteor-node-stubs": "^1.2.7",
     "react": "^18.2.0",

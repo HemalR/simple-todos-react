@@ -1,10 +1,30 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { Meteor } from 'meteor/meteor';
-import { App } from '/imports/ui/App';
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
 
+// Import the generated route tree
+import { routeTree } from '../imports/routeTree.gen';
+
+// Create a new router instance
+const router = createRouter({ routeTree })
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
 Meteor.startup(() => {
-  const container = document.getElementById('react-target');
-  const root = createRoot(container!);
-  root.render(<App />);
+  // Render the app
+  const rootElement = document.getElementById('react-target')!
+  if (!rootElement.innerHTML) {
+    const root = ReactDOM.createRoot(rootElement)
+    root.render(
+      <StrictMode>
+        <RouterProvider router={router} />
+      </StrictMode>,
+    )
+  }
 });

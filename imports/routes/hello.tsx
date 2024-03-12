@@ -1,6 +1,11 @@
+import { createFileRoute } from '@tanstack/react-router';
 import React, { useState } from 'react';
 
-export const Hello = () => {
+export const Route = createFileRoute('/hello')({
+  component: Hello,
+})
+
+function Hello () {
   const [counter, setCounter] = useState(0);
 
   const increment = () => {
