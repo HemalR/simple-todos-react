@@ -1,8 +1,14 @@
-import React from 'react';
+import { MantineProvider, createTheme } from '@mantine/core';
+import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { Meteor } from 'meteor/meteor';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 // Import the generated route tree
 import { routeTree } from '../imports/routeTree.gen';
@@ -23,7 +29,9 @@ Meteor.startup(() => {
     const root = ReactDOM.createRoot(rootElement)
     root.render(
       <StrictMode>
-        <RouterProvider router={router} />
+        <MantineProvider theme={theme}>
+          <RouterProvider router={ router } />
+        </MantineProvider>
       </StrictMode>,
     )
   }

@@ -78,3 +78,35 @@ export const Route = createRootRoute({
 ```
 
 6. Conquer the world..? Or at least, enjoy file based routes...
+
+# Using Mantine with Meteor
+
+1. Install dependencies
+
+```
+meteor npm install @mantine/core @mantine/hooks
+meteor npm install --save-dev postcss postcss-preset-mantine postcss-simple-vars postcss-load-config
+```
+
+2. Create postcss.config.js file:
+
+```
+module.exports = {
+  plugins: {
+    'postcss-preset-mantine': {},
+    'postcss-simple-vars': {
+      variables: {
+        'mantine-breakpoint-xs': '36em',
+        'mantine-breakpoint-sm': '48em',
+        'mantine-breakpoint-md': '62em',
+        'mantine-breakpoint-lg': '75em',
+        'mantine-breakpoint-xl': '88em',
+      },
+    },
+  },
+};
+```
+
+3. Import styles in main.tsx: `import '@mantine/core/styles.css';`
+
+4. Wrap app in the Mantine provider

@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
+    "@mantine/core": "^7.6.2",
+    "@mantine/dates": "^7.6.2",
+    "@mantine/hooks": "^7.6.2",
     "@tanstack/react-router": "^1.19.10",
     "@tanstack/router-cli": "^1.19.6",
     "@tanstack/router-devtools": "^1.19.11",
     "@zodern/babel-plugin-meteor-relay": "^1.1.4",
+    "dayjs": "^1.11.10",
     "meteor-node-stubs": "^1.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,6 +28,10 @@
     "@types/node": "^18.16.5",
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
+    "postcss": "^8.4.35",
+    "postcss-load-config": "^5.0.3",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^4.9.5"
   },
   "meteor": {
